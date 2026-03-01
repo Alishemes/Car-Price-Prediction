@@ -1,68 +1,111 @@
-# **Car Price Prediction**
+🚗 Car Price Prediction
+Project Goal
 
-## **Project Goal**
-**Predict the selling price of cars** based on features like **Present Price, Car Age, Fuel Type, Seller Type, and Transmission**.
+Predict the selling price of used cars based on features like:
 
-## **Tools Used**
-- **Python**
-- **Pandas**
-- **NumPy**
-- **Matplotlib**
-- **Seaborn**
-- **Scikit-Learn**
+Present Price
 
-## **Steps**
+Car Age
 
-### **1. Data Loading & Cleaning**
-- Loaded dataset from CSV
-- Checked **missing values**
-- Created **`Car_Age`** feature
-- Dropped irrelevant columns: **`Car_Name`, `Year`**
+Kms Driven
 
-### **2. Feature Engineering**
-- Created **Car Age = 2026 - Year**
-- Encoded categorical variables (**Fuel_Type, Seller_Type, Transmission**) using **OneHotEncoder**
+Fuel Type
 
-### **3. Exploratory Data Analysis (EDA)**
-- **Histogram** of Selling Price
-- **Scatterplot:** Present Price vs Selling Price
-- **Correlation Heatmap**
+Seller Type
 
-### **4. Modeling**
-- **Linear Regression**
-- **Polynomial Regression (degree=2)**
-- **Decision Tree Regression**
-- **Random Forest Regression**
+Transmission
 
-### **5. Evaluation**
+Owner
 
-#### **Model Performance**
+The project uses machine learning regression models to provide accurate price predictions and insights into the most important features affecting car resale value.
 
-| **Model**              | **R2 Score** | **RMSE** | **MAE** |
-|------------------------|--------------|----------|---------|
-| Linear Regression      | 0.850        | 1.658    | 1.245   |
-| Polynomial Regression  | 0.955        | 0.905    | 0.566   |
-| Decision Tree          | 0.929        | 1.143    | 0.624   |
-| Random Forest          | 0.962        | 0.841    | 0.489   |
+Tools & Libraries
 
-#### **Random Forest Cross-Validation**
-- **CV Scores:** [0.960, 0.906, 0.895, 0.901, 0.948]  
-- **Mean R2:** 0.922 ± 0.027
+Python
 
-### **6. Visualization**
-- **Histogram of Selling Price**
-- **Scatterplot:** Present Price vs Selling Price
-- **Correlation Heatmap**
-- **Actual vs Predicted Prices** for all models
-- **Feature Importance** (Random Forest)
+Pandas
 
-## **How to Run**
-1. Clone the repository
-2. Ensure **`car data.csv`** is in the same folder as the notebook
-3. Open **`Car_Price_Prediction.ipynb`** in Jupyter Notebook
-4. Run all cells to reproduce the analysis and results
+NumPy
 
-## **Notes**
-- **Polynomial Regression (degree=2)** gives higher **R2** than Linear Regression
-- **Random Forest** performs the best overall with the lowest **RMSE** and **MAE**
-- **CV Scores** show Random Forest is stable across folds
+Matplotlib
+
+Seaborn
+
+Scikit-Learn
+
+Project Workflow
+1️⃣ Data Loading & Cleaning
+
+Load dataset from CSV file
+
+Checked for missing values
+
+Created new feature: Car_Age = 2026 - Year
+
+Dropped irrelevant columns: Car_Name and Year
+
+Filled missing values:
+
+Numerical columns → median
+
+Categorical columns → mode
+
+2️⃣ Feature Engineering
+
+Encoded categorical variables (Fuel_Type, Seller_Type, Transmission) using OneHotEncoder
+
+Combined with numerical features using ColumnTransformer
+
+3️⃣ Exploratory Data Analysis (EDA)
+
+Histogram of Selling Price
+
+Scatterplot: Present Price vs Selling Price
+
+Correlation Heatmap
+
+4️⃣ Modeling
+
+Linear Regression
+
+Polynomial Regression (degree=2)
+
+Decision Tree Regression
+
+Random Forest Regression
+
+5️⃣ Model Evaluation
+
+R² Score, RMSE, MAE
+
+Cross-validation for Random Forest
+
+Hyperparameter tuning with GridSearchCV
+
+Model Performance
+Model	R2 Score	RMSE	MAE
+Linear Regression	0.850	1.658	1.245
+Polynomial Regression	0.955	0.905	0.566
+Decision Tree	0.929	1.143	0.624
+Random Forest	0.962	0.841	0.489
+🔎 Feature Importance (Random Forest)
+
+Top 3 Features:
+
+Present Price – strongest predictor
+
+Car Age – older cars sell for less
+
+Kms Driven – smaller effect
+
+📈 Visualizations
+
+Histogram of Selling Price
+
+Scatterplot: Present Price vs Selling Price
+
+Correlation Heatmap
+
+Actual vs Predicted Prices (Random Forest)
+
+Feature Importance Bar Chart
